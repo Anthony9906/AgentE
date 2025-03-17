@@ -22,7 +22,7 @@ export function Header({ className }: HeaderProps) {
               className="text-white"
             />
           </div>
-          <span className="font-semibold text-lg">Agentic /E</span>
+          <span className="font-semibold text-lg">Agentic <span className="text-blue-300 text-xl font-bold">/</span>E</span>
         </div>
       </div>
       
