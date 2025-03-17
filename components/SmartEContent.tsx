@@ -29,168 +29,143 @@ export function SmartEContent({ className }: SmartEContentProps) {
       </div>
 
       {/* 主要内容区域 - 两列布局 */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        {/* 左侧列 - Smart Q&A 部分 */}
-        <div className="lg:col-span-2">
-          <div className="bg-white rounded-xl p-6 shadow-sm mb-6">
-            <div className="flex justify-between items-center mb-4">
-              <div className="flex items-center gap-3">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        {/* 左侧列 - 技能列表 */}
+        <div className="space-y-4">
+          {/* AI Skills 标题 */}
+          <div className="flex items-center gap-2 mb-2">
+            <div className="w-6 h-6 rounded-md bg-blue-100 flex items-center justify-center">
+              <svg className="h-4 w-4 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="3" y="3" width="7" height="7"></rect>
+                <rect x="14" y="3" width="7" height="7"></rect>
+                <rect x="14" y="14" width="7" height="7"></rect>
+                <rect x="3" y="14" width="7" height="7"></rect>
+              </svg>
+            </div>
+            <h2 className="text-lg font-semibold text-gray-600">Recent Tasks</h2>
+          </div>
+          <p className="text-xs text-gray-400 mb-4">Review your recent tasks and information</p>
+
+          {/* Smart Q&A 卡片 */}
+          <Card className="border hover:shadow-md transition-shadow bg-white">
+            <CardContent className="p-4">
+              <div className="flex items-start gap-3">
                 <div className="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center">
                   <MessageSquare className="h-4 w-4 text-blue-600" />
                 </div>
-                <h2 className="text-xl font-bold text-gray-600">Smart Q&A</h2>
+                <div>
+                  <h3 className="font-medium text-base text-gray-600 mb-1">Smart Q&A</h3>
+                  <p className="text-xs text-gray-400">Conversational interface for data analysis</p>
+                </div>
               </div>
-              <Button variant="outline" className="flex items-center gap-2 text-sm">
-                <span>View all</span>
-                <ArrowRight className="h-4 w-4" />
-              </Button>
-            </div>
+            </CardContent>
+          </Card>
 
-            {/* 标签切换 */}
-            <div className="mb-6">
-              <Tabs defaultValue="corp" className="w-full">
-                <TabsList className="bg-gray-100 p-1 rounded-full">
-                  <TabsTrigger value="corp" className="rounded-full data-[state=active]:bg-black data-[state=active]:text-white">Corp Operation</TabsTrigger>
-                  <TabsTrigger value="customer" className="rounded-full">Customer Sales</TabsTrigger>
-                  <TabsTrigger value="analysis1" className="rounded-full">Analysis Topic1</TabsTrigger>
-                  <TabsTrigger value="analysis2" className="rounded-full">Analysis Topic2</TabsTrigger>
-                  <TabsTrigger value="more" className="rounded-full">
-                    <Grid className="h-4 w-4" />
-                  </TabsTrigger>
-                </TabsList>
-              </Tabs>
-            </div>
+          {/* Q&A Summary 卡片 */}
+          <Card className="border hover:shadow-md transition-shadow bg-white">
+            <CardContent className="p-4">
+              <div className="flex items-start gap-3">
+                <div className="w-8 h-8 rounded-lg bg-purple-100 flex items-center justify-center">
+                  <svg className="h-4 w-4 text-purple-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                    <polyline points="10 9 9 9 8 9"></polyline>
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="font-medium text-base text-gray-600 mb-1">Q&A Summary</h3>
+                  <p className="text-xs text-gray-400">Summarize your conversation insights</p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
 
-            {/* 分析卡片区域 */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {/* CRM Analysis 卡片 */}
-              <Card className="border hover:shadow-md transition-shadow">
-                <CardHeader className="pb-2">
-                  <CardTitle className="text-base font-semibold text-gray-600">CRM Analysis</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="flex flex-wrap gap-2 mt-2">
-                    <Badge variant="outline" className="bg-gray-50 text-gray-500 text-xs">Customer</Badge>
-                    <Badge variant="outline" className="bg-gray-50 text-gray-500 text-xs">Product</Badge>
-                    <Badge variant="outline" className="bg-gray-50 text-gray-500 text-xs">Funnel</Badge>
-                  </div>
-                </CardContent>
-              </Card>
-
-              {/* Campaign Analysis 卡片 */}
-              <Card className="border hover:shadow-md transition-shadow">
-                <CardHeader className="pb-2">
-                  <CardTitle className="text-base font-semibold text-gray-600">Campaign Analysis</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="flex flex-wrap gap-2 mt-2">
-                    <Badge variant="outline" className="bg-gray-50 text-gray-500 text-xs">Campaign</Badge>
-                    <Badge variant="outline" className="bg-gray-50 text-gray-500 text-xs">Sales Amount</Badge>
-                    <Badge variant="outline" className="bg-gray-50 text-gray-500 text-xs">Profit</Badge>
-                  </div>
-                </CardContent>
-              </Card>
-
-              {/* Channel acquisition analysis 卡片 */}
-              <Card className="border hover:shadow-md transition-shadow">
-                <CardHeader className="pb-2">
-                  <CardTitle className="text-base font-semibold text-gray-600">Channel acquisition analysis</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="flex flex-wrap gap-2 mt-2">
-                    <Badge variant="outline" className="bg-gray-50 text-gray-500 text-xs">Channel</Badge>
-                    <Badge variant="outline" className="bg-gray-50 text-gray-500 text-xs">Product</Badge>
-                    <Badge variant="outline" className="bg-gray-50 text-gray-500 text-xs">Sales</Badge>
-                    <Badge variant="outline" className="bg-gray-50 text-gray-500 text-xs">Profit</Badge>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-
-            {/* 查看更多数据按钮 */}
-            <div className="flex justify-end mt-4">
-              <Button variant="ghost" className="text-blue-600 flex items-center gap-1 text-sm">
-                <span>All Available Data</span>
-                <ChevronDown className="h-4 w-4" />
-              </Button>
-            </div>
-          </div>
+          {/* KPI Diagnose 卡片 */}
+          <Card className="border hover:shadow-md transition-shadow bg-white">
+            <CardContent className="p-4">
+              <div className="flex items-start gap-3">
+                <div className="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center">
+                  <BarChart2 className="h-4 w-4 text-blue-600" />
+                </div>
+                <div>
+                  <h3 className="font-medium text-base text-gray-600 mb-1">KPI Diagnose</h3>
+                  <p className="text-xs text-gray-400">Analyze your metrics data performance</p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
         </div>
 
-        {/* 右侧列 - Smart Skills 部分 */}
-        <div className="lg:col-span-1">
-          <div className="bg-white rounded-xl p-6 shadow-sm">
-            <div className="flex justify-between items-center mb-4">
-              <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-lg bg-purple-100 flex items-center justify-center">
-                  <Star className="h-4 w-4 text-purple-600" />
-                </div>
-                <h2 className="text-xl font-bold text-gray-600">Smart Skills</h2>
-              </div>
-              <Button variant="outline" className="flex items-center gap-2 text-sm">
-                <span>View all</span>
-                <ArrowRight className="h-4 w-4" />
-              </Button>
+        {/* 右侧列 - 详细信息 */}
+        <div className="space-y-4">
+          {/* AI Skills 标题 */}
+          <div className="flex items-center gap-2 mb-2">
+            <div className="w-6 h-6 rounded-md bg-blue-100 flex items-center justify-center">
+              <svg className="h-4 w-4 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="3" y="3" width="7" height="7"></rect>
+                <rect x="14" y="3" width="7" height="7"></rect>
+                <rect x="14" y="14" width="7" height="7"></rect>
+                <rect x="3" y="14" width="7" height="7"></rect>
+              </svg>
             </div>
-            <p className="text-gray-400 mb-6 text-sm">Efficiency tools for data consumption scenarios</p>
-
-            {/* 技能卡片 */}
-            <div className="space-y-4">
-              {/* KPI Diagnose 卡片 */}
-              <Card className="border hover:shadow-md transition-shadow">
-                <CardContent className="p-4">
-                  <div className="flex items-start gap-3">
-                    <div className="w-10 h-10 bg-blue-100 rounded-md flex items-center justify-center mt-1 border border-gray-200">
-                      <BarChart2 className="h-5 w-5 text-blue-600" />
-                    </div>
-                    <div>
-                      <h3 className="font-medium text-base text-gray-600 mb-1">KPI Diagnose</h3>
-                      <p className="text-xs text-gray-400">Analyze your KPI data for better decision-making</p>
-                      <div className="mt-3 text-xs text-gray-300">
-                        # <span className="bg-gray-100 px-1 py-1 rounded text-gray-500 text-xs">Analytics</span>
-                      </div>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-
-              {/* Report Summary 卡片 */}
-              <Card className="border hover:shadow-md transition-shadow">
-                <CardContent className="p-4">
-                  <div className="flex items-start gap-3">
-                    <div className="w-10 h-10 bg-purple-100 rounded-md flex items-center justify-center mt-1 border border-gray-200">
-                      <PieChart className="h-5 w-5 text-purple-600" />
-                    </div>
-                    <div>
-                      <h3 className="font-medium text-base text-gray-600 mb-1">Report Summary</h3>
-                      <p className="text-xs text-gray-400">Summarize reports with key insights</p>
-                      <div className="mt-3 text-xs text-gray-300">
-                        # <span className="bg-gray-100 px-1 py-1 rounded text-gray-500 text-xs">Reporting</span>
-                      </div>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-
-              {/* More 卡片 */}
-              <Card className="border hover:shadow-md transition-shadow">
-                <CardContent className="p-4">
-                  <div className="flex items-start gap-3">
-                    <div className="w-10 h-10 bg-gray-100 rounded-md flex items-center justify-center mt-1 border border-gray-200">
-                      <Grid className="h-5 w-5 text-gray-600" />
-                    </div>
-                    <div>
-                      <h3 className="font-medium text-base text-gray-600 mb-1">More</h3>
-                      <p className="text-xs text-gray-400">Click here for more efficiency skills</p>
-                      <div className="mt-3 text-xs text-gray-300">
-                        # <span className="bg-gray-100 px-1 py-1 rounded text-gray-500 text-xs">Tools</span>
-                      </div>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
+            <h2 className="text-lg font-semibold text-gray-600">AI Skills</h2>
           </div>
+          <p className="text-xs text-gray-400 mb-4">Ability of Smart Q to do things</p>
+          {/* Report Summary 卡片 */}
+          <Card className="border hover:shadow-md transition-shadow bg-white">
+            <CardContent className="p-4">
+              <div className="flex items-start gap-3">
+                <div className="w-8 h-8 rounded-lg bg-purple-100 flex items-center justify-center">
+                  <svg className="h-4 w-4 text-purple-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                    <polyline points="10 9 9 9 8 9"></polyline>
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="font-medium text-base text-gray-600 mb-1">Knowledge Base</h3>
+                  <p className="text-xs text-gray-400">The knowledge and reference for retrieval</p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Report Design 卡片 */}
+          <Card className="border hover:shadow-md transition-shadow bg-white">
+            <CardContent className="p-4">
+              <div className="flex items-start gap-3">
+                <div className="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center">
+                  <svg className="h-4 w-4 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                    <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="font-medium text-base text-gray-600 mb-1">Toolbox</h3>
+                  <p className="text-xs text-gray-400">What tools can Smart Q use and act</p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* More 卡片 */}
+          <Card className="border hover:shadow-md transition-shadow bg-white">
+            <CardContent className="p-4">
+              <div className="flex items-start gap-3">
+                <div className="w-8 h-8 rounded-lg bg-gray-100 flex items-center justify-center">
+                  <Grid className="h-4 w-4 text-gray-600" />
+                </div>
+                <div>
+                  <h3 className="font-medium text-base text-gray-600 mb-1">Memory</h3>
+                  <p className="text-xs text-gray-400">Remember everything and experiences</p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
         </div>
       </div>
 

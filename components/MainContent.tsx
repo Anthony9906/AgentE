@@ -19,7 +19,7 @@ export function MainContent({ className }: MainContentProps) {
       <div className="flex h-full">
         <div 
           className={`transition-all duration-300 ease-in-out ${
-            showChatbot ? 'w-[60%] pr-4' : 'w-full'
+            showChatbot ? 'w-[52%] pr-4' : 'w-full'
           }`}
         >
           
@@ -42,7 +42,7 @@ export function MainContent({ className }: MainContentProps) {
                     </Button>
                   </div>
                 </div>
-                <CardDescription className="text-center text-gray-400 max-w">
+                <CardDescription className="text-center text-gray-400 max-w-xl">
                   Explore the power of AI Agents to boost your career. <br />
                   Build and grow "Smart E", an AI that understands you better and acts smarter.
                 </CardDescription>
@@ -63,12 +63,6 @@ export function MainContent({ className }: MainContentProps) {
                         target.style.display = 'none';
                       }}
                     />
-                  </div>
-                  
-                  {/* 在AI Agents卡片网格之前添加标题区域 */}
-                  <div className="flex justify-between items-center mb-4 mt-2">
-                    <h2 className="text-xl font-bold text-gray-600"> </h2>
-                    <p className="text-sm text-gray-400 italic">Agents in Agentic Hub.</p>
                   </div>
                   
                   {/* AI Agents 卡片网格 */}
@@ -159,7 +153,7 @@ export function MainContent({ className }: MainContentProps) {
         <div 
           className={`bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300 ease-in-out ${
             showChatbot 
-              ? 'w-[40%] opacity-100 translate-x-0' 
+              ? 'w-[48%] opacity-100 translate-x-0' 
               : 'w-0 opacity-0 translate-x-full'
           }`}
         >

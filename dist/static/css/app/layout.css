@@ -965,6 +965,24 @@ video {
 .w-px {
   width: 1px;
 }
+.w-\[55\%\] {
+  width: 55%;
+}
+.w-\[45\%\] {
+  width: 45%;
+}
+.w-\[46\%\] {
+  width: 46%;
+}
+.w-\[54\%\] {
+  width: 54%;
+}
+.w-\[52\%\] {
+  width: 52%;
+}
+.w-\[48\%\] {
+  width: 48%;
+}
 .min-w-0 {
   min-width: 0px;
 }
@@ -986,6 +1004,9 @@ video {
 .max-w-max {
   max-width: -moz-max-content;
   max-width: max-content;
+}
+.max-w-xl {
+  max-width: 36rem;
 }
 .flex-1 {
   flex: 1 1 0%;
@@ -2662,6 +2683,10 @@ video {
 
   .lg\:grid-cols-4 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .lg\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 .\[\&\:has\(\[aria-selected\]\)\]\:bg-accent:has([aria-selected]) {
